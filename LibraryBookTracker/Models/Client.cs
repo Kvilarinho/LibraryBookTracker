@@ -2,23 +2,17 @@ using System;
 
 namespace LibraryBookTracker.Models;
 
-public class Client(string firstName, string lastName, string phoneNumber) : BaseEntity
+public class Client : BaseEntity
 {
 
-    public string FirstName { get; init; } = firstName;
-    public string LastName { get; init; } = lastName;
-    public string PhoneNumber { get; set; } = phoneNumber;
+    public string FirstName { get; init; } = string.Empty;
+    public string LastName { get; init; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
 
-    private readonly List<Book> books = new();
-
-    public void AddBook(Book book)
+    public Client(string firstName, string lastName, string phoneNumber)
     {
-        books.Add(book);
+        FirstName = firstName;
+        LastName = lastName;
+        PhoneNumber = phoneNumber;
     }
-
-    public void RemoveBook(Book book)
-    {
-        books.Remove(book);
-    }
-
 }
