@@ -10,6 +10,6 @@ public interface IBookService
     void RemoveBook(Guid id);
     IEnumerable<Book> GetAll();
     IEnumerable<Book> GetAvailable();
-    IEnumerable<Book> GetByClient(Guid clientId);
+    
 
 }
