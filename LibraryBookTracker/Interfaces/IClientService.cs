@@ -5,8 +5,7 @@ namespace LibraryBookTracker.Interfaces;
 
 public interface IClientService
 {
-    void AddClient(string firstName, string lastName, string phoneNumber);
-    void RemoveClient(Guid id);
+    Task AddClient(string firstName, string lastName, string phoneNumber);
+    Task RemoveClient(Guid id);
     IEnumerable<Client> GetAll();
-    IEnumerable<Book> GetBooksFromClient(Guid clientId);
 }

@@ -46,7 +46,8 @@ public class LoanService : ILoanService
         var loan = _loanRepository.GetAll().FirstOrDefault(b => b.BookId == bookId)
             ?? throw new KeyNotFoundException($"Loan {bookId} not found");
 
-        _loanRepository.Remove(loan.Id);
+        loan.ReturnDate = DateTime.Now;
+        //_loanRepository.Remove(loan.Id); nao faz sentido, não guarda histórico
         book.IsAvailable = true;
 
         await _loanRepository.SaveToFileAsync();
