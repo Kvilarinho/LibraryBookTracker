@@ -25,7 +25,7 @@ public class RemoveBookCommand : ICommand
 
         Console.WriteLine($"\n{"ID",-38} {"Title",-30} Author");
         Console.WriteLine(new string('-', 80));
-        
+
         foreach (var book in books)
             Console.WriteLine($"{book.Id,-38} {book.Title,-30} {book.Author}");
 
