@@ -3,7 +3,7 @@ using LibraryBookTracker.Models;
 
 namespace LibraryBookTracker.Interfaces;
 
-public interface IBookRepository
+public interface IBookRepository : IRepository
 {
     void Add(Book book);
     void Remove(Guid id);

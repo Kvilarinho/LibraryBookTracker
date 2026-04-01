@@ -5,11 +5,10 @@ namespace LibraryBookTracker.Interfaces;
 
 public interface IBookService
 {
-    void AddBook(string title, string author);
+    Task AddBook(string title, string author);
     void SetAvailable(Guid id, bool available);
-    void RemoveBook(Guid id);
+    Task RemoveBook(Guid id);
     IEnumerable<Book> GetAll();
     IEnumerable<Book> GetAvailable();
-    
 
 }

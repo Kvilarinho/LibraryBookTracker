@@ -3,7 +3,7 @@ using LibraryBookTracker.Models;
 
 namespace LibraryBookTracker.Interfaces;
 
-public interface IClientRepository
+public interface IClientRepository :IRepository
 {
     void Add(Client client);
     void Remove(Guid id);

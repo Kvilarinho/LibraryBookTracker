@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using LibraryBookTracker.Interfaces;
 using LibraryBookTracker.Models;
 
@@ -13,10 +14,12 @@ public class BookService : IBookService
         _repository = repository;
     }
 
-    public void AddBook(string title, string author)
+    public async Task AddBook(string title, string author)
     {
         Book book = new Book(title, author);
         _repository.Add(book);
+
+        await _repository.SaveToFileAsync();
     }
 
     public IEnumerable<Book> GetAll()
@@ -29,9 +32,10 @@ public class BookService : IBookService
         return _repository.GetAll().Where(b => b.IsAvailable);
     }
 
-    public void RemoveBook(Guid id)
+    public async Task RemoveBook(Guid id)
     {
         _repository.Remove(id);
+        await _repository.SaveToFileAsync();
     }
 
     public void SetAvailable(Guid id, bool available)

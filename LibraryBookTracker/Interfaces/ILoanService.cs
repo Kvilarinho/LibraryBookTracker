@@ -5,7 +5,7 @@ namespace LibraryBookTracker.Interfaces;
 
 public interface ILoanService
 {  
-    void LoanBook(Guid bookId, Guid clientId);
-    void ReturnBook(Guid bookId);
-    IEnumerable<Book> GetByClient(Guid clientId);
+    Task LoanBook(Guid bookId, Guid clientId);
+    Task ReturnBook(Guid bookId);
+    IEnumerable<Loan> GetByClient(Guid clientId);
 }
