@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using LibraryBookTracker.Interfaces;
 using LibraryBookTracker.Models;
 
@@ -8,10 +6,12 @@ namespace LibraryBookTracker.Services;
 public class ClientService : IClientService
 {
     private readonly IClientRepository _repository;
+    private readonly ILoanRepository _loanRepository;
 
-    public ClientService(IClientRepository repository)
+    public ClientService(IClientRepository repository, ILoanRepository loanRepository)
     {
         _repository = repository;
+        _loanRepository = loanRepository;
     }
 
     public async Task AddClient(string firstName, string lastName, string phoneNumber)
@@ -29,6 +29,12 @@ public class ClientService : IClientService
 
     public async Task RemoveClient(Guid id)
     {
+        var hasActiveLoans = _loanRepository.GetAll()
+            .Any(l => l.ClientId == id && l.ReturnDate == null);
+
+        if (hasActiveLoans)
+            throw new InvalidOperationException("Cannot remove a client with active loans.");
+
         _repository.Remove(id);
         await _repository.SaveToFileAsync();
     }

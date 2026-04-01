@@ -1,4 +1,4 @@
-using System;
+using System.Text.Json.Serialization;
 
 namespace LibraryBookTracker.Models;
 
@@ -16,4 +16,6 @@ public class Loan : BaseEntity
         LoanDate = DateTime.Now;
     }
 
+    [JsonConstructor]
+    private Loan() { }
 }
