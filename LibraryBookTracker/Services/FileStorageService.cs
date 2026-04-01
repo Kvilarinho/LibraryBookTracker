@@ -9,11 +9,13 @@ public class FileStorageService : IFileStorageService
 {
     private readonly string _bookFilePath;
     private readonly string _clientFilePath;
+    private readonly string _loanFilePath;
 
-    public FileStorageService(string bookFilePath = "books.json", string clientFilePath = "clients.json")
+    public FileStorageService(string bookFilePath = "books.json", string clientFilePath = "clients.json", string loanFilePath = "loan.json")
     {
         _bookFilePath = bookFilePath;
         _clientFilePath = clientFilePath;
+        _loanFilePath = loanFilePath;
     }
 
     public async Task<List<Book>> LoadBookAsync()
@@ -32,6 +34,14 @@ public class FileStorageService : IFileStorageService
         return JsonSerializer.Deserialize<List<Client>>(json) ?? new();
     }
 
+    public async Task<List<Loan>> LoadLoanAsync()
+    {
+        if (!File.Exists(_loanFilePath)) return new List<Loan>();
+
+        var json = await File.ReadAllTextAsync(_loanFilePath);
+        return JsonSerializer.Deserialize<List<Loan>>(json) ?? new();
+    }
+
     public async Task SaveBookAsync(IEnumerable<Book> books)
     {
         var json = JsonSerializer.Serialize(books, new JsonSerializerOptions
@@ -48,5 +58,15 @@ public class FileStorageService : IFileStorageService
             WriteIndented = true
         });
         await File.WriteAllTextAsync(_clientFilePath, json);
+    }
+
+    public async Task SaveLoanAsync(IEnumerable<Loan> loans)
+    {
+        var json = JsonSerializer.Serialize(loans, new JsonSerializerOptions
+        {
+            WriteIndented = true
+        });
+
+        await File.WriteAllTextAsync(_loanFilePath, json);
     }
 }
