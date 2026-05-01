@@ -1,0 +1,23 @@
+[
+  {
+    "BookId": "266ebf8c-bba0-4b54-a339-485aa4f35c5f",
+    "ClientId": "20cd80f9-8597-4c4f-83d2-0e66e767eb2c",
+    "LoanDate": "2026-04-01T17:16:01.7509808+01:00",
+    "ReturnDate": "2026-04-01T17:17:38.8149339+01:00",
+    "Id": "c20b16d8-61e3-422c-88b3-47ea51f9c9e4"
+  },
+  {
+    "BookId": "266ebf8c-bba0-4b54-a339-485aa4f35c5f",
+    "ClientId": "9ccc0e46-b4fd-44d4-8746-c04b5e55f69d",
+    "LoanDate": "2026-04-01T17:23:06.4791543+01:00",
+    "ReturnDate": null,
+    "Id": "d1dfd25e-65a8-4090-97e3-6b9e9497f55c"
+  },
+  {
+    "BookId": "da917bcc-bd4d-438a-a808-f10738e28c81",
+    "ClientId": "b117fc91-65ac-4759-a980-5dd81a47fda5",
+    "LoanDate": "2026-04-01T17:23:58.4334057+01:00",
+    "ReturnDate": null,
+    "Id": "d60eac1e-f54c-4642-bf89-ad5cd343c30a"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "Title": "The wind",
+    "Author": "Brunette",
+    "IsAvailable": false,
+    "Id": "266ebf8c-bba0-4b54-a339-485aa4f35c5f"
+  },
+  {
+    "Title": "The ocean",
+    "Author": "Lagard",
+    "IsAvailable": false,
+    "Id": "da917bcc-bd4d-438a-a808-f10738e28c81"
+  }
+]
